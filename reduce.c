@@ -2331,6 +2331,7 @@ void out_here(FILE *f,word h,word nl)  /* h is fileinfo(scriptname,line_no) */
 void outstats()
 { extern long claims,nogcs;
   extern int atcount;
+  extern word verbosity;
   extern long long cellcount;
 #ifdef BSDCLOCK
   struct tms buffer;
@@ -2338,7 +2339,18 @@ void outstats()
 #ifdef HISTO
   printhisto();
 #endif
-  if(!atcount)return;
+  if(!atcount)
+    { if(verbosity)
+#ifdef BSDCLOCK
+        { times(&buffer);
+          fprintf(stderr,"||evaluation time = %0.2fs\n",
+                  buffer.tms_utime/(CLK_TCK*1.0)); }
+#else
+        { end=clock();
+          fprintf(stderr,"||evaluation time = %0.2fs\n",
+                  ((double) (end - start)) / CLOCKS_PER_SEC); }
+#endif
+      return; }
 #ifdef BSDCLOCK
   times(&buffer);
 #else
