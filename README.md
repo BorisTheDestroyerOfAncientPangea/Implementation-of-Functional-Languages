@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Maintenance of Miranda
 
 The Miranda source code is now maintained on `codeberg.org/DATurner/miranda`
@@ -53,3 +54,7 @@ by sending an email to `miranda+subscribe@groups.io`
 His earlier language, KRC, is maintained at `codeberg.org/DATurner/KRC`
 
     Martin Guy <martinwguy@gmail.com>, April 2025.
+=======
+# Implementation-of-Functional-Languages
+A repository which I will use to try out some exercises for the Miranda functional language as part of my dissertation
+>>>>>>> 8d6c8bcc6593103b46473edd0928ee0cd2b194d8
